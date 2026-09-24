@@ -1,9 +1,20 @@
 import React from 'react';
 import './index.css';
+import AccordionGallery from './AccordionGallery';
 
 export default function App() {
   const options = { weekday: 'long', month: 'long', day: 'numeric' };
   const currentDate = new Date().toLocaleDateString('en-US', options);
+
+  const galleryItems = [
+    { image: '/backgrounds/pexels-vincent-belho-54161054-8061236.jpg', label: 'Lush Valleys', description: 'Discover the serene beauty of the region.' },
+    { image: '/backgrounds/pexels-votso-sothu-53802751-32090368.jpg', label: 'Cultural Heritage', description: 'A glimpse into the traditions and landscapes.' },
+    { image: '/backgrounds/mohamed-abdul-rasheed-bb3NDDl2bO0-unsplash.jpg', label: 'Hornbill Festival', description: 'Vibrant celebrations and traditional attire.' },
+    { image: '/backgrounds/mohamed-abdul-rasheed-w4N83YXZCII-unsplash.jpg', label: 'Tribal Traditions', description: 'Rich cultural legacy and community.' },
+    { image: '/backgrounds/pratham-malviya-Hm59ASJxwJo-unsplash.jpg', label: 'Scenic Mountains', description: 'Breathtaking views of the peaks.' },
+    { image: '/backgrounds/rupesh-jaiswal-UpfqeUfatrk-unsplash.jpg', label: 'Local Life', description: 'Everyday moments in Nagaland.' },
+    { image: '/backgrounds/tshewe-rhakho-tiLIaC2uQsk-unsplash.jpg', label: 'Serene Nature', description: 'Tranquility among the lush greens.' }
+  ];
 
   return (
     <div className="dashboard-container">
@@ -148,20 +159,12 @@ export default function App() {
         
         <section className="gallery-section">
           <h2>Nagaland Landscapes</h2>
-          <div className="accordion-gallery">
-            <div className="gallery-item" style={{backgroundImage: "url('/backgrounds/pexels-vincent-belho-54161054-8061236.jpg')"}}>
-              <div className="gallery-content">
-                <h3>Lush Valleys</h3>
-                <p>Discover the serene beauty of the region.</p>
-              </div>
-            </div>
-            <div className="gallery-item" style={{backgroundImage: "url('/backgrounds/pexels-votso-sothu-53802751-32090368.jpg')"}}>
-              <div className="gallery-content">
-                <h3>Cultural Heritage</h3>
-                <p>A glimpse into the traditions and landscapes.</p>
-              </div>
-            </div>
-          </div>
+          <AccordionGallery
+            items={galleryItems}
+            defaultIndex={0}
+            expandRatio={0.52}
+            trigger="hover"
+          />
         </section>
         
       </main>
